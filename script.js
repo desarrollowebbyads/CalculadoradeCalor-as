@@ -38,3 +38,7 @@ document.getElementById("calcular").addEventListener("click", function() {
     document.getElementById("imc").textContent = imc.toFixed(2);
     document.getElementById("consumoCalorico").textContent = consumoCalorico.toFixed(2);
 });
+
+
+
+

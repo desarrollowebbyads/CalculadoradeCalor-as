@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .slide {
+    flex: 0 0 auto;
+    width: 100vw;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<div id="slider" class="slider">
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/03/Pagina-de-Captura-Sistema-Trendy-RECURSO-15.png" alt="Imagen 1"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/04/Sony-Music.png" alt="Imagen 2"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/04/Latin-grammy.png" alt="Imagen 3"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/04/Universal-Music.png" alt="Imagen 4"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/04/Warner-Music.png" alt="Imagen 5"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/03/Pagina-de-Captura-Sistema-Trendy-RECURSO-18-1.png" alt="Imagen 6"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/03/Pagina-de-Captura-Sistema-Trendy-RECURSO-20.png" alt="Imagen 7"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/03/Pagina-de-Captura-Sistema-Trendy-RECURSO-16.png" alt="Imagen "></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/03/Pagina-de-Captura-Sistema-Trendy-RECURSO-19.png" alt="Imagen 8"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/03/Pagina-de-Captura-Sistema-Trendy-RECURSO-16-1.png" alt="Imagen 9"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/01/Premios.png" alt="Imagen 10"></div>
+  <div class="slide"><img src="https://trendy.irmamartinez.com/wp-content/uploads/2024/03/Pagina-de-Captura-Sistema-Trendy-RECURSO-17-1.png" alt="Imagen 11"></div>
+  
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById('slider');
+  let slides = document.querySelectorAll('.slide');
+  let cloneFirst = slides[0].cloneNode(true);
+  let cloneLast = slides[slides.length - 1].cloneNode(true);
+  
+ 
+  slider.insertBefore(cloneLast, slider.firstChild);
+  slider.appendChild(cloneFirst);
+
+
+  let currentIndex = 1; //
+  const slideWidth = slides[0].clientWidth;
+  slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+
+
+  function moveToNextSlide() {
+    if (currentIndex >= slides.length - 1) return;
+    currentIndex++;
+    slider.style.transition = 'transform 0.3s ease-in-out';
+    slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+  }
+
+
+  function moveToPrevSlide() {
+    if (currentIndex <= 0) return;
+    currentIndex--;
+    slider.style.transition = 'transform 0.3s ease-in-out';
+    slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+  }
+
+  
+  slider.addEventListener('transitionend', () => {
+    if (slides[currentIndex].id === 'lastClone') {
+      slider.style.transition = 'none';
+      currentIndex = slides.length - 2;
+      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    }
+    if (slides[currentIndex].id === 'firstClone') {
+      slider.style.transition = 'none';
+      currentIndex = slides.length - currentIndex;
+      slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+    }
+  });
+
+ 
+  setInterval(moveToNextSlide, 3000); 
+});
+</script>
+
+</body>
+</html>
