@@ -4,6 +4,10 @@
     background-color: #000000;
   }
 
+  h1{
+    color: #ffffff;
+    text-align: center;
+  }
 
   .calculator-container {
     max-width: 1000px;
