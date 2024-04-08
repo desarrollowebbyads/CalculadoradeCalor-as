@@ -20,27 +20,37 @@
             </select>
             <input name="peso" type="number" placeholder="Peso en kg" />
             <select name="actividad">
-                <option value="Sedentario">Sedentario</option>
-                <option value="Ligero">Ligero</option>
-                <option value="Moderado">Moderado</option>
-                <option value="Activo">Activo</option>
-                <option value="Muy activo">Muy activo</option> 
-                <option value="Extremadamente activo">Extremadamente activo</option>
+                <option value="Sedentario">Sedentario: Nada de ejercicio y/o deporte al día</option>
+                <option value="Ligero">Ligero: 1-2 días a la semana de ejercicio</option>
+                <option value="Moderado">Moderado: 2-3 días a la semana de ejercicio</option>
+                <option value="Activo">Activo: 3-4 días a la semana de ejercicio</option>
+                <option value="Muy_activo">Muy activo: 4-5 días a la semana de ejercicio </option> 
+                <option value="Intenso">Intensa: 5-6 días a la semana de ejercicio</option>
             </select>
+            <h3>OBJETIVO :</h3>
             <select name="objetivo">
-                <option value="Mantener">Mantener peso</option>
-                <option value="Perder">Perder peso</option>
-                <option value="PerderAgresivo">Perder peso de forma agresiva</option>
-                <option value="Ganar">Ganar peso</option>
-                <option value="GanarAgresivo">Ganar peso de forma agresiva</option>
+                <option value="Bajar_grasa_corporal">Bajar grasa corporal</option>
+                <option value="Mantener_peso_actual">Mantener peso actual</option>
+                <option value="Aumentar_masa_muscular">Aumentar masa muscular</option>
+            
             </select>
             <button type="button" id="calcular">¡Calcular!</button>
         </form>
+
         <div class="resultados" id="resultados">
+            <h3>Resultados:
+            </h3>
             <div>Tasa de metabolismo basal (BMR): <span id="tmb"></span></div>
             <div>Índice de masa corporal (BMI): <span id="imc"></span></div>
             <div>Consumo Calórico Diario: <span id="consumoCalorico"></span></div>
         </div>
+
+        <div class="aviso-responsabilidad">
+            <h4>Aviso de Responsabilidad</h4>
+            <p>Los resultados proporcionados por esta herramienta se basan en fórmulas estándar que se aplican a la población general y sirven como una estimación. Sin embargo, cada individuo es único, y muchos factores pueden influir en su salud y necesidades nutricionales. Por lo tanto, estos cálculos no deben utilizarse como sustitutos de consejos médicos o nutricionales profesionales.</p>
+            <p>Si tienes preguntas sobre tu salud, nutrición, o estás considerando realizar cambios significativos en tu dieta o estilo de vida, te recomendamos encarecidamente que consultes a un profesional de la salud cualificado. Un nutricionista, dietista o médico podrá ofrecerte asesoramiento personalizado que tenga en cuenta tus necesidades específicas y condiciones de salud.</p>
+        
+            </div>
     </div>
 
     <script src="script.js"></script> 

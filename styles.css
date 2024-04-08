@@ -56,3 +56,24 @@
     color: #ffffff;
     font-weight: bold;
   }
+
+  h3{
+    color: #ffffff;
+  }
+
+  li{
+    list-style: none;
+  }
+
+  .aviso-responsabilidad {
+    color: #ffffff;
+    font-size: 0.5rem;
+    padding: 15px; 
+    border-radius: 5px; 
+    margin-top: 20px; 
+}
+
+.aviso-responsabilidad h4 {
+    margin-top: 0;
+    
+}

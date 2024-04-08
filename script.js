@@ -18,27 +18,25 @@ document.getElementById("calcular").addEventListener("click", function() {
         Ligero: 1.375,
         Moderado: 1.55,
         Activo: 1.725,
-        "Muy activo": 1.9,
-        "Extremadamente activo": 2.2,
+        Muy_activo: 1.9,
+        Intenso: 2.2,
     };
 
     let consumoCalorico = tmb * factoresActividad[actividad];
 
-    const ajustesObjetivo = {
-        Mantener: 1,
-        Perder: 0.85,
-        PerderAgresivo: 0.75,
-        Ganar: 1.15,
-        GanarAgresivo: 1.25,
-    };
+    let resultadoTexto = '<ul>';
 
-    consumoCalorico *= ajustesObjetivo[objetivo];
+    if (objetivo === 'Bajar_grasa_corporal') {
+        resultadoTexto += `<li>Déficit moderado: ${(consumoCalorico * 0.85).toFixed(2)} kcal/día</li>
+                          <li>Déficit agresivo: ${(consumoCalorico * 0.75).toFixed(2)} kcal/día</li>`;
+    } else if (objetivo === 'Mantener_peso_actual') {
+        resultadoTexto += `<li>Equilibrio:  ${consumoCalorico.toFixed(2)} kcal/día</li>`;
+    } else if (objetivo === 'Aumentar_masa_muscular') {
+        resultadoTexto += `<li>Superávit moderado: ${(consumoCalorico * 1.15).toFixed(2)} kcal/día</li>
+                          <li>Superávit agresivo: ${(consumoCalorico * 1.25).toFixed(2)} kcal/día</li>`;
+    }
 
     document.getElementById("tmb").textContent = tmb.toFixed(2);
     document.getElementById("imc").textContent = imc.toFixed(2);
-    document.getElementById("consumoCalorico").textContent = consumoCalorico.toFixed(2);
+    document.getElementById("consumoCalorico").innerHTML = resultadoTexto;
 });
-
-
-
-
