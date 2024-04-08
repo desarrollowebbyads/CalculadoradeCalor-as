@@ -26,15 +26,22 @@ document.getElementById("calcular").addEventListener("click", function() {
 
     let resultadoTexto = '<ul>';
 
+    let tablaHtml = `<table border="1">
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Cantidad</th>
+                        </tr>`;
+
     if (objetivo === 'Bajar_grasa_corporal') {
-        resultadoTexto += `<li>Déficit moderado: ${(consumoCalorico * 0.85).toFixed(2)} kcal/día</li>
-                          <li>Déficit agresivo: ${(consumoCalorico * 0.75).toFixed(2)} kcal/día</li>`;
+        tablaHtml += `<tr><td>Déficit moderado</td><td>${(consumoCalorico * 0.85).toFixed(2)} kcal/día</td></tr>
+                      <tr><td>Déficit agresivo</td><td>${(consumoCalorico * 0.75).toFixed(2)} kcal/día</td></tr>`;
     } else if (objetivo === 'Mantener_peso_actual') {
-        resultadoTexto += `<li>Equilibrio:  ${consumoCalorico.toFixed(2)} kcal/día</li>`;
+        tablaHtml += `<tr><td>Equilibrio</td><td>aproximadamente ${consumoCalorico.toFixed(2)} kcal/día</td></tr>`;
     } else if (objetivo === 'Aumentar_masa_muscular') {
-        resultadoTexto += `<li>Superávit moderado: ${(consumoCalorico * 1.15).toFixed(2)} kcal/día</li>
-                          <li>Superávit agresivo: ${(consumoCalorico * 1.25).toFixed(2)} kcal/día</li>`;
+        tablaHtml += `<tr><td>Superávit moderado</td><td>${(consumoCalorico * 1.15).toFixed(2)} kcal/día</td></tr>
+                      <tr><td>Superávit agresivo</td><td> ${(consumoCalorico * 1.25).toFixed(2)} kcal/día</td></tr>`;
     }
+    document.getElementById("tablaResultados").innerHTML = tablaHtml;
 
     document.getElementById("tmb").textContent = tmb.toFixed(2);
     document.getElementById("imc").textContent = imc.toFixed(2);

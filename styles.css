@@ -62,6 +62,7 @@
   }
 
   li{
+    
     list-style: none;
   }
 
@@ -76,4 +77,26 @@
 .aviso-responsabilidad h4 {
     margin-top: 0;
     
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+ td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th{
+  color: #000000;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
 }
