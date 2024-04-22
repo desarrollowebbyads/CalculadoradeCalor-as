@@ -104,3 +104,16 @@ th{
 th {
   background-color: #f2f2f2;
 }
+
+.descarga{
+  padding-left: 0.5rem;
+}
+
+.descarga a{
+  color: #ffffff;
+  padding-left: 0.5rem;
+}
+
+.descarga a:hover{
+  color: #7dc903;
+}
